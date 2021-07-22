@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 class SmartPayOptions extends StatelessWidget {
   Widget _buildItems(String title, Color color, Icon icon) {
     return Column(
-      // crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CircleAvatar(radius: 21.5, backgroundColor: color, child: icon,),
         SizedBox(height: 9,),
-        Text(title)
+        Container(
+          width: 43,
+          child: Text(title, maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),))
       ],
     );
   }
@@ -24,7 +26,7 @@ class SmartPayOptions extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
-              color: Colors.black26,
+              color: Colors.black12,
               spreadRadius: 2,
               blurRadius: 6,
               offset: Offset(0,3)
@@ -38,17 +40,23 @@ class SmartPayOptions extends StatelessWidget {
             children: [
               Text("Smart Pay"),
               SizedBox(
-                height: 10,
+                height: 5,
               ),
-              Divider(),
+              Divider(
+                thickness: 1,
+              ),
               SizedBox(
-                height: 10,
+                height: 13,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
   
                 children: [
-                  _buildItems("School fees", Color(0xffFF3F00), Icon(CupertinoIcons.person_solid, color: Colors.white,)),
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.pushNamed(context, "/payment");
+                    },
+                    child: _buildItems("School fees", Color(0xffFF3F00), Icon(CupertinoIcons.person_solid, color: Colors.white,))),
                   SizedBox(width: 8,),
                   _buildItems("SRC Dues", Color(0xff0DB17F), Icon(CupertinoIcons.money_dollar, color: Colors.white,)),
                   SizedBox(width: 8,),
@@ -56,7 +64,8 @@ class SmartPayOptions extends StatelessWidget {
                   SizedBox(width: 8,),
                   _buildItems("Transcript", Color(0xff191EB1), Icon(CupertinoIcons.doc, color: Colors.white,)),
                 ],
-              )
+              ),
+              SizedBox(height: 14,)
             ],
           ),
         ),

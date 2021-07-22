@@ -16,6 +16,9 @@ class MyApp extends StatelessWidget{
   Widget build(BuildContext context) {
     return CupertinoApp(
       home: LoginPage(),
+      theme: CupertinoThemeData(
+        brightness: Brightness.light
+      ),
       routes: {
         "/login": (_)=>LoginPage(),
         "/signup": (_)=>SignupPage(),

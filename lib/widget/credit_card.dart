@@ -7,18 +7,25 @@ class CreditCard extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 40),
-          height: 152,
+          margin: EdgeInsets.only(right: 20.0,left: 20.0, top: 30, bottom: 29),
+          height: 150,
           decoration: BoxDecoration(
               color: Color(0xff628395),
-              borderRadius: BorderRadius.circular(15)),
+              borderRadius: BorderRadius.circular(15),
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.black26,
+                    spreadRadius: 2,
+                    blurRadius: 6,
+                    offset: Offset(0, 3))
+              ]),
         ),
         Positioned(
             left: 40,
-            top: 52,
+            top: 47,
             child: Text(
               "Simple",
-              style: TextStyle(fontSize: 15, color: Colors.white54),
+              style: TextStyle(fontSize: 13, color: Colors.white54),
             )),
         Positioned(
           top: 85,
@@ -29,7 +36,7 @@ class CreditCard extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 52,
+          top: 47,
           right: 40,
           child: Stack(
             children: [
@@ -47,28 +54,29 @@ class CreditCard extends StatelessWidget {
           ),
         ),
         Positioned(
-            bottom: 52,
+            bottom: 40,
             left: 40,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   "Card Number Holder",
-                  style: TextStyle(fontSize: 15, color: Colors.white54),
+                  style: TextStyle(fontSize: 13, color: Colors.white54),
                 ),
                 Text("DZINEDU KING DAVID",
-                    style: TextStyle(fontSize: 20, color: Color(0xffFFFFFF)))
+                    style: TextStyle(fontSize: 17, color: Color(0xffFFFFFF)))
               ],
             )),
         Positioned(
-            bottom: 52,
+            bottom: 40,
             right: 40,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text("Expiry Date",
-                    style: TextStyle(fontSize: 15, color: Colors.white54)),
-                Text("02/23", style: TextStyle(fontSize: 20, color: Color(0xffFFFFFF)))
+                    style: TextStyle(fontSize: 13, color: Colors.white54)),
+                Text("02/23",
+                    style: TextStyle(fontSize: 17, color: Color(0xffFFFFFF)))
               ],
             )),
       ],
