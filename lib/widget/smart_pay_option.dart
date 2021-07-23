@@ -1,3 +1,4 @@
+import 'package:fintech_app/screens/payment_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -6,11 +7,22 @@ class SmartPayOptions extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CircleAvatar(radius: 21.5, backgroundColor: color, child: icon,),
-        SizedBox(height: 9,),
+        CircleAvatar(
+          radius: 21.5,
+          backgroundColor: color,
+          child: icon,
+        ),
+        SizedBox(
+          height: 9,
+        ),
         Container(
-          width: 43,
-          child: Text(title, maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),))
+            width: 43,
+            child: Text(
+              title,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+            ))
       ],
     );
   }
@@ -22,17 +34,15 @@ class SmartPayOptions extends StatelessWidget {
       // padding: EdgeInsets.all(28.0),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black12,
-              spreadRadius: 2,
-              blurRadius: 6,
-              offset: Offset(0,3)
-            )
-          ]
-        ),
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.black12,
+                  spreadRadius: 2,
+                  blurRadius: 6,
+                  offset: Offset(0, 3))
+            ]),
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
@@ -50,22 +60,89 @@ class SmartPayOptions extends StatelessWidget {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-  
                 children: [
                   GestureDetector(
-                    onTap: (){
-                      Navigator.pushNamed(context, "/payment");
-                    },
-                    child: _buildItems("School fees", Color(0xffFF3F00), Icon(CupertinoIcons.person_solid, color: Colors.white,))),
-                  SizedBox(width: 8,),
-                  _buildItems("SRC Dues", Color(0xff0DB17F), Icon(CupertinoIcons.money_dollar, color: Colors.white,)),
-                  SizedBox(width: 8,),
-                  _buildItems("Resit", Color(0xffB11998), Icon(CupertinoIcons.pencil, color: Colors.white,)),
-                  SizedBox(width: 8,),
-                  _buildItems("Transcript", Color(0xff191EB1), Icon(CupertinoIcons.doc, color: Colors.white,)),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            CupertinoPageRoute(
+                                builder: (_) => FeePaymentPage(
+                                      logo: "assets/images/school.jpg",
+                                      pageTitle: "School Fees",
+                                    )));
+                      },
+                      child: _buildItems(
+                          "School fees",
+                          Color(0xffFF3F00),
+                          Icon(
+                            CupertinoIcons.person_solid,
+                            color: Colors.white,
+                          ))),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            CupertinoPageRoute(
+                                builder: (_) => FeePaymentPage(
+                                      logo: "assets/images/src.jpg",
+                                      pageTitle: "SRC Dues",
+                                    )));
+                      },
+                      child: _buildItems(
+                          "SRC Dues",
+                          Color(0xff0DB17F),
+                          Icon(
+                            CupertinoIcons.money_dollar,
+                            color: Colors.white,
+                          ))),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            CupertinoPageRoute(
+                                builder: (_) => FeePaymentPage(
+                                      logo: "assets/images/resit.jpg",
+                                      pageTitle: "Resit",
+                                    )));
+                      },
+                      child: _buildItems(
+                          "Resit",
+                          Color(0xffB11998),
+                          Icon(
+                            CupertinoIcons.pencil,
+                            color: Colors.white,
+                          ))),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            CupertinoPageRoute(
+                                builder: (_) => FeePaymentPage(
+                                      logo: "assets/images/resit.jpg",
+                                      pageTitle: "Transcript",
+                                    )));
+                      },
+                      child: _buildItems(
+                          "Transcript",
+                          Color(0xff191EB1),
+                          Icon(
+                            CupertinoIcons.doc,
+                            color: Colors.white,
+                          ))),
                 ],
               ),
-              SizedBox(height: 14,)
+              SizedBox(
+                height: 14,
+              )
             ],
           ),
         ),

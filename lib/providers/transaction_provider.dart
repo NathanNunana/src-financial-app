@@ -18,20 +18,26 @@ class TransactionProvider extends ChangeNotifier {
         title: "Resit",
         mode: "Vodafone Cash",
         amount: 100,
-        image: "assets/images/resit.jpg")
+        image: "assets/images/resit.jpg"),
+    Transaction(
+        title: "Transcript",
+        mode: "Tigo Cash",
+        amount: 200,
+        image: "assets/images/resit.jpg",)
   ];
-  addTransaction({String? title, String? mode, int? amount, String? image}){
-    var value = Transaction(
-        title: title,
-        mode: mode,
-        amount: amount,
-        image: image
-      );
-    transactions.add(value);
-    notifyListeners();
-  }
   deleteTransaction(int index){
-    transactions.remove(index);
+    transactions.removeAt(index);
     notifyListeners();
   }
 }
+
+// addTransaction({String? title, String? mode, int? amount, String? image}){
+//     var value = Transaction(
+//         title: title,
+//         mode: mode,
+//         amount: amount,
+//         image: image
+//       );
+//     transactions.add(value);
+//     notifyListeners();
+//   }

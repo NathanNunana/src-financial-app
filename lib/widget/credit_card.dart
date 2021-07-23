@@ -1,9 +1,12 @@
+import 'package:fintech_app/providers/user.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CreditCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+  final user = context.read<UserProvider>().user;
     return Stack(
       children: [
         Container(
@@ -63,7 +66,7 @@ class CreditCard extends StatelessWidget {
                   "Card Number Holder",
                   style: TextStyle(fontSize: 13, color: Colors.white54),
                 ),
-                Text("DZINEDU KING DAVID",
+                Text(user.name.toString().toUpperCase(),
                     style: TextStyle(fontSize: 17, color: Color(0xffFFFFFF)))
               ],
             )),

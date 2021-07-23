@@ -2,6 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class FeePaymentPage extends StatelessWidget {
+  final String? logo;
+  final String? pageTitle;
+  FeePaymentPage({this.logo, this.pageTitle});
+
   Widget _buildTtextField(String title, TextInputType type) {
     return CupertinoTextField(
       keyboardType: type,
@@ -20,36 +24,26 @@ class FeePaymentPage extends StatelessWidget {
       // backgroundColor: Colors.black.withOpacity(.5),
       navigationBar: CupertinoNavigationBar(
         middle: Text(
-          "SRC Dues",
+          pageTitle.toString(),
           style: TextStyle(color: Colors.white),
         ),
       ),
-      child: ListView(
-        physics: ScrollPhysics(),
+      child: Column(
         children: [
-        Column(
-          children: [
-            // Container(
-            //     margin: EdgeInsets.symmetric(horizontal: 16, vertical: 7),
-            //     child: Text(
-            //       "Payment Form",
-            //       style: TextStyle(
-            //           fontSize: 26,
-            //           fontWeight: FontWeight.w500,
-            //           color: Colors.black),
-            //     )),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 50),
-              height: 200,
-              child: Image.asset(
-                "assets/images/src.jpg",
-                fit: BoxFit.cover,
-                colorBlendMode: BlendMode.softLight,
-              ),
+          Container(
+            margin: EdgeInsets.only(right: 50, left: 50, top: 20),
+            height: 200,
+            child: Image.asset(
+              logo.toString(),
+              fit: BoxFit.cover,
+              colorBlendMode: BlendMode.softLight,
             ),
-            Padding(
+          ),
+          Expanded(
+            child: Padding(
               padding: const EdgeInsets.all(15.0),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   SizedBox(
                     height: 15,
@@ -77,9 +71,8 @@ class FeePaymentPage extends StatelessWidget {
                 ],
               ),
             ),
-          ],
-        ),
-        Container(
+          ),
+          Container(
           // height: 110,
           padding: EdgeInsets.all(9.0),
           decoration: BoxDecoration(
@@ -124,7 +117,8 @@ class FeePaymentPage extends StatelessWidget {
         ],
           ),
         )
-      ]),
+        ],
+      ),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:fintech_app/utilities/months.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -5,49 +6,6 @@ import 'package:provider/provider.dart';
 import '../providers/transaction_provider.dart';
 
 class TransactionRecords extends StatelessWidget {
-  String _convertMonth(int num) {
-    String date = "";
-    switch (num) {
-      case 1:
-        date = "Jan";
-        break;
-      case 2:
-        date = "Feb";
-        break;
-      case 3:
-        date = "March";
-        break;
-      case 4:
-        date = "April";
-        break;
-      case 5:
-        date = "May";
-        break;
-      case 6:
-        date = "June";
-        break;
-      case 7:
-        date = "July";
-        break;
-      case 8:
-        date = "Aug";
-        break;
-      case 9:
-        date = "Sept";
-        break;
-      case 10:
-        date = "Oct";
-        break;
-      case 11:
-        date = "Nov";
-        break;
-      case 12:
-        date = "Dec";
-        break;
-    }
-    return date;
-  }
-
   Widget _buildCustomListTile(BuildContext context, int index) {
     var provider = context.read<TransactionProvider>().transactions[index];
     return Column(
@@ -61,7 +19,7 @@ class TransactionRecords extends StatelessWidget {
               height: 64,
               decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: (index % 2 == 0)
+                  borderRadius: (index % 2 != 0)
                       ? BorderRadius.only(
                           bottomLeft: Radius.circular(9),
                           bottomRight: Radius.circular(9))
@@ -109,7 +67,7 @@ class TransactionRecords extends StatelessWidget {
                           TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
                     ),
                     Text(
-                      '${_convertMonth(provider.date.month)}, ${provider.date.day.toString()}',
+                      '${CalcMonth().convertMonth(provider.date.month)}, ${provider.date.day.toString()}',
                       style:
                           TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
                     )
@@ -153,21 +111,10 @@ class TransactionRecords extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Transactions",
-                      style:
-                          TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                    ),
-                    Text("See All",
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Color(0xffFF3F00),
-                          fontWeight: FontWeight.bold,
-                        ))
-                  ],
+                Text(
+                  "Transactions",
+                  style:
+                      TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                 ),
                 Container(
                     margin: EdgeInsets.only(top: 9),
@@ -235,12 +182,6 @@ class TransactionRecords extends StatelessWidget {
                   // count++;
                   return _buildCustomListTile(context, index);
                 } else {
-                  // if(count == 0){
-                  //   return Container(
-                  //     height: 150,
-                  //     color: Colors.red,
-                  //   );
-                  // }else{
                     return Container();
                   // }
                 }
