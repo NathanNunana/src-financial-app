@@ -1,13 +1,14 @@
+// system imports
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-// ignore: import_of_legacy_library_into_null_safe
-// import 'package:flutter_icons/flutter_icons.dart';
 
+// local imports
 import './tabs/home_tab.dart';
 import './tabs/notification_tab.dart';
 import './tabs/profile_tab.dart';
 
 class Dashboard extends StatelessWidget {
+  // variable holds the tabs widgets
   final List<Widget> _tabs = [
     HomeTab(),
     NotificationTab(), 
@@ -17,6 +18,7 @@ class Dashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
+        
         backgroundColor: Color(0xffFF3F00),
         leading: Text(
           "Dashboard",
@@ -25,7 +27,6 @@ class Dashboard extends StatelessWidget {
         ),
         trailing: Icon(Icons.menu, color: Colors.white,),
       ),
-  
       child: SafeArea(
         child: Scaffold(
           body: CupertinoTabScaffold(

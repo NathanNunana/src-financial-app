@@ -1,6 +1,8 @@
 // system imports
+import 'package:fintech_app/providers/transaction_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 // local imports
 import './screens/dashboard.dart';
@@ -10,21 +12,28 @@ import './screens/signup_page.dart';
 
 void main() => runApp(MyApp());
 
-
-class MyApp extends StatelessWidget{
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return CupertinoApp(
-      home: LoginPage(),
-      theme: CupertinoThemeData(
-        brightness: Brightness.light
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => TransactionProvider(),
+        )
+      ],
+      child: CupertinoApp(
+        theme: CupertinoThemeData(
+            brightness: Brightness.light,
+            barBackgroundColor: Color(0xffFF3F00),
+            primaryColor: Colors.white),
+        routes: {
+          "/": (_) => LoginPage(),
+          "/login": (_) => LoginPage(),
+          "/signup": (_) => SignupPage(),
+          "/dashboard": (_) => Dashboard(),
+          "/payment": (_) => FeePaymentPage(),
+        },
       ),
-      routes: {
-        "/login": (_)=>LoginPage(),
-        "/signup": (_)=>SignupPage(),
-        "/dashboard": (_)=>Dashboard(),
-        "/payment": (_)=>FeePaymentPage(),
-      }, 
     );
   }
 }
