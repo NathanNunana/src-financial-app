@@ -116,7 +116,7 @@ class TransactionRecords extends StatelessWidget {
                   style:
                       TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                 ),
-                Container(
+                (context.read<TransactionProvider>().transactions.length > 0) ? Container(
                     margin: EdgeInsets.only(top: 9),
                     child: Text(
                       "RECENT",
@@ -125,7 +125,7 @@ class TransactionRecords extends StatelessWidget {
                         color: Color(0xffFF3F00),
                         fontWeight: FontWeight.bold,
                       ),
-                    )),
+                    )): Container(),
               ],
             ),
           ),
@@ -153,7 +153,7 @@ class TransactionRecords extends StatelessWidget {
                   // }
                 }
               }),
-          Padding(
+          (context.read<TransactionProvider>().transactions.length > 0)? Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
               "OLDER",
@@ -163,7 +163,7 @@ class TransactionRecords extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-          ),
+          ):Container(),
           ListView.builder(
               shrinkWrap: true,
               itemCount:

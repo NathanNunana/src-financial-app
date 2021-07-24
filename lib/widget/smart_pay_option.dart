@@ -8,7 +8,7 @@ class SmartPayOptions extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CircleAvatar(
-          radius: 21.5,
+          radius: 22.5,
           backgroundColor: color,
           child: icon,
         ),

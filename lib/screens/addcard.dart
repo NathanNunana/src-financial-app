@@ -10,11 +10,11 @@ class AddCard extends StatefulWidget {
 }
 
 class _AddCardState extends State<AddCard> {
-  String cardType = '';
-
   String cardNum = '';
 
   String indexNum = '';
+
+  String method = '';
 
   _showDialog() {
     showCupertinoDialog(
@@ -32,26 +32,58 @@ class _AddCardState extends State<AddCard> {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: 40,
+                      height: 15,
                     ),
                     Container(
-                        margin: EdgeInsets.symmetric(horizontal: 20),
-                        child: CupertinoTextField(
-                          onChanged: (String val) {
-                            setState(() {
-                              cardType = val;
-                            });
-                          },
-                          keyboardType: TextInputType.text,
-                          padding: EdgeInsets.all(15),
-                          placeholder: "Card Type",
-                          placeholderStyle:
-                              TextStyle(fontSize: 16, color: Colors.black54),
-                          decoration: BoxDecoration(
-                              border:
-                                  Border.all(width: 0.42, color: Colors.blue),
-                              borderRadius: BorderRadius.circular(9)),
+                        margin: EdgeInsets.symmetric(horizontal: 25),
+                        child: Text(
+                          "SELECT THE CARD TYPE",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w800,
+                              color: CupertinoTheme.of(context).primaryColor),
                         )),
+                    SizedBox(
+                      height: 10,
+                    ),
+
+                    // Container(
+                    //     margin: EdgeInsets.symmetric(horizontal: 20),
+                    //     child: CupertinoTextField(
+                    //       onChanged: (String val) {
+                    //         setState(() {
+                    //           cardType = val;
+                    //         });
+                    //       },
+                    //       keyboardType: TextInputType.text,
+                    //       padding: EdgeInsets.all(15),
+                    //       placeholder: "Card Type",
+                    //       placeholderStyle:
+                    //           TextStyle(fontSize: 16, color: Colors.black54),
+                    //       decoration: BoxDecoration(
+                    //           border:
+                    //               Border.all(width: 0.42, color: Colors.blue),
+                    //           borderRadius: BorderRadius.circular(9)),
+                    //     )),
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 10),
+                      padding: EdgeInsets.all(5),
+                      child: CupertinoPicker(
+                          itemExtent: 45.0,
+                          onSelectedItemChanged: (int index) {
+                            method =
+                                context.read<CardProvider>().cardTypes[index];
+                          },
+                          children: List.generate(
+                              context.read<CardProvider>().cardTypes.length,
+                              (index) => Center(
+                                    child: new Text(
+                                      context
+                                          .read<CardProvider>()
+                                          .cardTypes[index],
+                                      style: TextStyle(color: Colors.black54),
+                                    ),
+                                  ))),
+                    ),
                     SizedBox(
                       height: 15,
                     ),
@@ -97,14 +129,15 @@ class _AddCardState extends State<AddCard> {
                     SizedBox(
                       height: 30,
                     ),
+
                     CupertinoButton.filled(
                       onPressed: () {
                         context
                             .read<CardProvider>()
-                            .createCard(cardNum, cardType, indexNum);
+                            .createCard(cardNum, method, indexNum);
                         Navigator.pop(context);
                       },
-                      child: Text("Add"),
+                      child: Text("Add Card"),
                     )
                   ],
                 )),
@@ -153,7 +186,7 @@ class _AddCardState extends State<AddCard> {
                                             onPressed: () {
                                               context
                                                   .read<CardProvider>()
-                                                  .activeCard = index;
+                                                  .activeCreditCard = index;
                                               // Navigator.of(context).pop();
                                               Navigator.pop(context);
                                             },

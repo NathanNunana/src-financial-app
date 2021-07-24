@@ -13,6 +13,7 @@ import './screens/login_page.dart';
 import './screens/tabs/notification_tab.dart';
 import './screens/signup_page.dart';
 import './screens/addcard.dart';
+import './screens/tabs/profile_tab.dart';
 
 void main() => runApp(MyApp());
 
@@ -47,7 +48,8 @@ class MyApp extends StatelessWidget {
           "/signup": (_) => SignupPage(),
           "/dashboard": (_) => Dashboard(),
           "/notification": (_) => NotificationTab(),
-          "/addcard": (_) => AddCard()
+          "/addcreditcard": (_) => AddCard(),
+          "/profile" : (_) => UserProfileTab()
         },
       ),
     );
