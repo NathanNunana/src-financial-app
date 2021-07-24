@@ -1,11 +1,9 @@
-import 'package:flutter/cupertino.dart';
 
+// var colors = {
 
-var colors = {
+// };
 
-};
-
-var fonts = {
-  'hText' : 33
-};
+// var fonts = {
+//   'hText' : 33
+// };
   

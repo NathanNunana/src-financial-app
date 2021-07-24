@@ -14,10 +14,10 @@ class LoginPage extends StatelessWidget {
   Widget _buildSubmitButton(BuildContext context) {
     return CupertinoButton(
       minSize: 20,
-      color: Color(0xffFF3F00),
+      color: CupertinoTheme.of(context).primaryColor,
       child: Container(child: Icon(CupertinoIcons.arrow_right)),
       onPressed: () {
-        Navigator.pushNamed(context, "/dashboard");
+        Navigator.pushReplacementNamed(context, "/dashboard");
       },
     );
   }
@@ -33,7 +33,7 @@ class LoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              "Welcome Back!,\nLogin Now",
+              "Welcome Back!\nLogin Now",
               style: TextStyle(fontSize: 33, fontWeight: FontWeight.w500),
             ),
             Container(

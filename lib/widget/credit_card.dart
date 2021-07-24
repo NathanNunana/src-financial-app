@@ -1,19 +1,23 @@
+import 'package:fintech_app/providers/card_provider.dart';
 import 'package:fintech_app/providers/user.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class CreditCard extends StatelessWidget {
+  final int index;
+  CreditCard(this.index);
   @override
   Widget build(BuildContext context) {
   final user = context.read<UserProvider>().user;
+  final card = context.read<CardProvider>().cards;
     return Stack(
       children: [
         Container(
           margin: EdgeInsets.only(right: 20.0,left: 20.0, top: 30, bottom: 29),
           height: 150,
           decoration: BoxDecoration(
-              color: Color(0xff628395),
+              color: card[index].cardColor,
               borderRadius: BorderRadius.circular(15),
               boxShadow: [
                 BoxShadow(
@@ -27,14 +31,14 @@ class CreditCard extends StatelessWidget {
             left: 40,
             top: 47,
             child: Text(
-              "Simple",
+              card[index].cardType,
               style: TextStyle(fontSize: 13, color: Colors.white54),
             )),
         Positioned(
           top: 85,
-          left: 143,
+          right: 60,
           child: Text(
-            "**** **** *** 6784",
+            card[index].cardNumber,
             style: TextStyle(fontSize: 20, color: Color(0xffFFFFFF)),
           ),
         ),
@@ -78,7 +82,7 @@ class CreditCard extends StatelessWidget {
               children: [
                 Text("Expiry Date",
                     style: TextStyle(fontSize: 13, color: Colors.white54)),
-                Text("02/23",
+                Text('${card[index].date.month}/${(card[index].date.year + 3)}',
                     style: TextStyle(fontSize: 17, color: Color(0xffFFFFFF)))
               ],
             )),
