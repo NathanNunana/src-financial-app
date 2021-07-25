@@ -1,18 +1,21 @@
 import 'package:fintech_app/utilities/months.dart';
+import 'package:fintech_app/widget/list_tile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/transaction_provider.dart';
 
-class TransactionRecords extends StatelessWidget {
+class TransactionRecords extends StatefulWidget {
+  @override
+  _TransactionRecordsState createState() => _TransactionRecordsState();
+}
+
+class _TransactionRecordsState extends State<TransactionRecords> {
   Widget _buildCustomListTile(BuildContext context, int index) {
     var provider = context.read<TransactionProvider>().transactions[index];
     return Column(
       children: [
-        SizedBox(
-          height: 11,
-        ),
         Stack(
           children: [
             Container(
@@ -33,8 +36,8 @@ class TransactionRecords extends StatelessWidget {
                         blurRadius: 6,
                         offset: Offset(0, 3))
                   ]),
-              child: ListTile(
-                leading: Container(
+              child: CustomListTile(
+                Container(
                   height: 45,
                   width: 45,
                   child: Image.asset(
@@ -42,7 +45,7 @@ class TransactionRecords extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
-                title: Column(
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -57,7 +60,7 @@ class TransactionRecords extends StatelessWidget {
                     )
                   ],
                 ),
-                trailing: Column(
+                Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -81,9 +84,11 @@ class TransactionRecords extends StatelessWidget {
                     offset: Offset(0, -12.5),
                     child: GestureDetector(
                         onTap: () {
-                          context
+                          setState(() {
+                            context
                               .read<TransactionProvider>()
                               .deleteTransaction(index);
+                          });
                         },
                         child: Icon(
                           Icons.cancel,
@@ -93,7 +98,7 @@ class TransactionRecords extends StatelessWidget {
           ],
         ),
         SizedBox(
-          height: 6,
+          height: 15,
         )
       ],
     );
@@ -130,6 +135,7 @@ class TransactionRecords extends StatelessWidget {
             ),
           ),
           ListView.builder(
+            padding: EdgeInsets.all(2),
               shrinkWrap: true,
               itemCount:
                   context.read<TransactionProvider>().transactions.length,
@@ -165,6 +171,7 @@ class TransactionRecords extends StatelessWidget {
             ),
           ):Container(),
           ListView.builder(
+            padding: EdgeInsets.all(2),
               shrinkWrap: true,
               itemCount:
                   context.read<TransactionProvider>().transactions.length,

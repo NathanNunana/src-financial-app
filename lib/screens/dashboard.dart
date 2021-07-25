@@ -10,10 +10,7 @@ import './tabs/profile_tab.dart';
 class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      child: SafeArea(
-        child: Scaffold(
-          body: CupertinoTabScaffold(
+    return CupertinoTabScaffold(
             tabBar: CupertinoTabBar(
                 activeColor: CupertinoTheme.of(context).primaryColor,
                 backgroundColor: Color(0xffFFFFFF),
@@ -54,9 +51,6 @@ class Dashboard extends StatelessWidget {
               }
               return page;
             },
-          ),
-        ),
-      ),
-    );
+          );
   }
 }

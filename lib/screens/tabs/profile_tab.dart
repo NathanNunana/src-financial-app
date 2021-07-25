@@ -1,4 +1,5 @@
 import 'package:fintech_app/providers/user.dart';
+import 'package:fintech_app/widget/list_tile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -43,7 +44,7 @@ class UserProfileTab extends StatelessWidget {
             Container(
                 alignment: Alignment.center,
                 child: Text(
-                  context.read<UserProvider>().user.indexNumber.toString(),
+                  context.read<UserProvider>().user.email.toString(),
                   style: TextStyle(fontSize: 15),
                 )),
             Container(
@@ -65,8 +66,8 @@ class UserProfileTab extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    ListTile(
-                      leading: Container(
+                    CustomListTile(
+                      Container(
                         decoration: BoxDecoration(
                             color: Colors.green,
                             borderRadius: BorderRadius.circular(10)),
@@ -76,11 +77,11 @@ class UserProfileTab extends StatelessWidget {
                           color: Colors.white,
                         ),
                       ),
-                      title: Text("Settings"),
-                      trailing: Icon(CupertinoIcons.chevron_right),
+                      Text("Settings"),
+                      Icon(CupertinoIcons.chevron_right),
                     ),
-                    ListTile(
-                      leading: Container(
+                    CustomListTile(
+                      Container(
                         decoration: BoxDecoration(
                             color: Colors.orange,
                             borderRadius: BorderRadius.circular(10)),
@@ -90,11 +91,11 @@ class UserProfileTab extends StatelessWidget {
                           color: Colors.white,
                         ),
                       ),
-                      title: Text("About"),
-                      trailing: Icon(CupertinoIcons.chevron_right),
+                      Text("About"),
+                      Icon(CupertinoIcons.chevron_right),
                     ),
-                    ListTile(
-                      leading: Container(
+                    CustomListTile(
+                      Container(
                         decoration: BoxDecoration(
                             color: Colors.blue,
                             borderRadius: BorderRadius.circular(10)),
@@ -104,11 +105,11 @@ class UserProfileTab extends StatelessWidget {
                           color: Colors.white,
                         ),
                       ),
-                      title: Text("Help"),
-                      trailing: Icon(CupertinoIcons.chevron_right),
+                      Text("Help"),
+                      Icon(CupertinoIcons.chevron_right),
                     ),
-                    ListTile(
-                      leading: Container(
+                    CustomListTile(
+                      Container(
                         decoration: BoxDecoration(
                             color: Colors.black,
                             borderRadius: BorderRadius.circular(10)),
@@ -118,11 +119,11 @@ class UserProfileTab extends StatelessWidget {
                           color: Colors.white,
                         ),
                       ),
-                      title: Text("Invite Friends"),
-                      trailing: Icon(CupertinoIcons.chevron_right),
+                      Text("Invite Friends"),
+                      Icon(CupertinoIcons.chevron_right),
                     ),
-                    ListTile(
-                      leading: Container(
+                    CustomListTile(
+                      Container(
                         decoration: BoxDecoration(
                             color: Colors.purple,
                             borderRadius: BorderRadius.circular(10)),
@@ -132,8 +133,8 @@ class UserProfileTab extends StatelessWidget {
                           color: Colors.white,
                         ),
                       ),
-                      title: Text("Logout"),
-                      trailing: Icon(CupertinoIcons.chevron_right),
+                      Text("Logout"),
+                      Icon(CupertinoIcons.chevron_right),
                     ),
                   ],
                 ),

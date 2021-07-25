@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
           "/signup": (_) => SignupPage(),
           "/dashboard": (_) => Dashboard(),
           "/notification": (_) => NotificationTab(),
-          "/addcreditcard": (_) => AddCard(),
+          "/addcard": (_) => AddCard(),
           "/profile" : (_) => UserProfileTab()
         },
       ),

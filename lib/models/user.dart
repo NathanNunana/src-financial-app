@@ -1,5 +1,5 @@
 class User {
   String? name;
-  String? indexNumber;
-  User({this.name, this.indexNumber});
+  String? email;
+  User({this.name, this.email});
 }

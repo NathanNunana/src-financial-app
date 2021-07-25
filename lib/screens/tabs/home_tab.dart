@@ -22,8 +22,8 @@ class HomeTab extends StatelessWidget {
               padding: EdgeInsets.zero,
               onPressed: () async {
                 // await FirebaseAuth.instance.signOut();
-                // Navigator.of(context).pushNamed("/addcreditcard");
-                Navigator.push(context, CupertinoPageRoute(builder: (_)=>AddCard()));
+                Navigator.of(context).pushNamed("/addcard");
+                // Navigator.push(context, CupertinoPageRoute(builder: (_)=>AddCard()));
               },
               child: Row(
                 mainAxisSize: MainAxisSize.min,

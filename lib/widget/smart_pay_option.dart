@@ -1,4 +1,6 @@
 import 'package:fintech_app/screens/payment_page.dart';
+import 'package:fintech_app/screens/transaction.dart';
+import 'package:fintech_app/services/tranaction_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -66,10 +68,11 @@ class SmartPayOptions extends StatelessWidget {
                         Navigator.push(
                             context,
                             CupertinoPageRoute(
-                                builder: (_) => FeePaymentPage(
-                                      logo: "assets/images/school.jpg",
-                                      pageTitle: "School Fees",
-                                    )));
+                                // builder: (_) => FeePaymentPage(
+                                //       logo: "assets/images/school.jpg",
+                                //       pageTitle: "School Fees",
+                                // ))
+                                builder: (_) => StackPayment()));
                       },
                       child: _buildItems(
                           "School fees",
@@ -86,10 +89,12 @@ class SmartPayOptions extends StatelessWidget {
                         Navigator.push(
                             context,
                             CupertinoPageRoute(
-                                builder: (_) => FeePaymentPage(
-                                      logo: "assets/images/src.jpg",
-                                      pageTitle: "SRC Dues",
-                                    )));
+                              builder: (_) => StackPayment(),
+                              // builder: (_) => FeePaymentPage(
+                              //       logo: "assets/images/src.jpg",
+                              //       pageTitle: "SRC Dues",
+                              //     )
+                            ));
                       },
                       child: _buildItems(
                           "SRC Dues",
@@ -106,10 +111,12 @@ class SmartPayOptions extends StatelessWidget {
                         Navigator.push(
                             context,
                             CupertinoPageRoute(
-                                builder: (_) => FeePaymentPage(
-                                      logo: "assets/images/resit.jpg",
-                                      pageTitle: "Resit",
-                                    )));
+                              builder: (_) => StackPayment(),
+                              // builder: (_) => FeePaymentPage(
+                              //       logo: "assets/images/src.jpg",
+                              //       pageTitle: "SRC Dues",
+                              //     )
+                            ));
                       },
                       child: _buildItems(
                           "Resit",
@@ -126,10 +133,12 @@ class SmartPayOptions extends StatelessWidget {
                         Navigator.push(
                             context,
                             CupertinoPageRoute(
-                                builder: (_) => FeePaymentPage(
-                                      logo: "assets/images/resit.jpg",
-                                      pageTitle: "Transcript",
-                                    )));
+                              builder: (_) => StackPayment(),
+                              // builder: (_) => FeePaymentPage(
+                              //       logo: "assets/images/src.jpg",
+                              //       pageTitle: "SRC Dues",
+                              //     )
+                            ));
                       },
                       child: _buildItems(
                           "Transcript",

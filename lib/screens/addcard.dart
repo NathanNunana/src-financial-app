@@ -34,36 +34,17 @@ class _AddCardState extends State<AddCard> {
                     SizedBox(
                       height: 15,
                     ),
-                    Container(
-                        margin: EdgeInsets.symmetric(horizontal: 25),
-                        child: Text(
-                          "SELECT THE CARD TYPE",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w800,
-                              color: CupertinoTheme.of(context).primaryColor),
-                        )),
+                    // Container(
+                    //     margin: EdgeInsets.symmetric(horizontal: 25),
+                    //     child: Text(
+                    //       "SELECT THE CARD TYPE",
+                    //       style: TextStyle(
+                    //           fontWeight: FontWeight.w800,
+                    //           color: CupertinoTheme.of(context).primaryColor),
+                    //     )),
                     SizedBox(
                       height: 10,
                     ),
-
-                    // Container(
-                    //     margin: EdgeInsets.symmetric(horizontal: 20),
-                    //     child: CupertinoTextField(
-                    //       onChanged: (String val) {
-                    //         setState(() {
-                    //           cardType = val;
-                    //         });
-                    //       },
-                    //       keyboardType: TextInputType.text,
-                    //       padding: EdgeInsets.all(15),
-                    //       placeholder: "Card Type",
-                    //       placeholderStyle:
-                    //           TextStyle(fontSize: 16, color: Colors.black54),
-                    //       decoration: BoxDecoration(
-                    //           border:
-                    //               Border.all(width: 0.42, color: Colors.blue),
-                    //           borderRadius: BorderRadius.circular(9)),
-                    //     )),
                     Container(
                       margin: EdgeInsets.symmetric(horizontal: 10),
                       padding: EdgeInsets.all(5),

@@ -25,6 +25,7 @@ class TransactionProvider extends ChangeNotifier {
         amount: 200,
         image: "assets/images/resit.jpg",)
   ];
+  
   deleteTransaction(int index){
     transactions.removeAt(index);
     notifyListeners();
