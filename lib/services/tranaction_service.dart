@@ -1,3 +1,5 @@
+import "dart:convert";
+
 import 'package:fintech_app/providers/user.dart';
 import 'package:fintech_app/screens/transaction.dart';
 import 'package:flutter/cupertino.dart';
@@ -13,22 +15,29 @@ class StackPayment extends StatefulWidget {
 class _StackPaymentState extends State<StackPayment> {
   TextEditingController _controller1 = TextEditingController();
   TextEditingController _controller2 = TextEditingController();
+  bool isLoading = false;
+  String url = '';
   void generateLink() async {
+    setState(() {
+      isLoading = true;
+    });
     final _endpoint =
         Uri.parse("https://api.paystack.co/transaction/initialize");
     var provider = context.read<UserProvider>();
     try {
       var respond = await http.post(_endpoint, headers: {
         'Authorization': provider.secreteKey,
-        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/json'
       }, body: {
         "email": provider.user.email,
         "amount": _controller2.text
       });
       print('Response Code: ${respond.statusCode}');
       print('Response Body: ${respond.body}');
+      var body = jsonDecode(respond.body);
+
       Navigator.pushReplacement(context,
-          CupertinoPageRoute(builder: (_) => RenderStackPay(respond.body)));
+          CupertinoPageRoute(builder: (_) => RenderStackPay(body)));
     } catch (error) {
       print(error);
     }
@@ -78,9 +87,10 @@ class _StackPaymentState extends State<StackPayment> {
               height: 20,
                 ),
                 CupertinoButton.filled(
-              child: Text("Continue"),
-              onPressed: ()=>generateLink,
-                )
+              child: isLoading? CupertinoActivityIndicator() :Text("Continue"),
+              onPressed: generateLink,
+                ),
+                
               ],
                     ),
                   ),

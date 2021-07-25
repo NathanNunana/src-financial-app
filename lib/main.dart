@@ -3,6 +3,7 @@ import 'package:fintech_app/providers/card_provider.dart';
 import 'package:fintech_app/providers/notification_provider.dart';
 import 'package:fintech_app/providers/transaction_provider.dart';
 import 'package:fintech_app/providers/user.dart';
+import 'package:fintech_app/services/tranaction_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -49,7 +50,8 @@ class MyApp extends StatelessWidget {
           "/dashboard": (_) => Dashboard(),
           "/notification": (_) => NotificationTab(),
           "/addcard": (_) => AddCard(),
-          "/profile" : (_) => UserProfileTab()
+          "/profile" : (_) => UserProfileTab(),
+          "/stackpay": (_) => StackPayment()
         },
       ),
     );

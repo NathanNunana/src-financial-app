@@ -61,7 +61,10 @@ class _AddCardState extends State<AddCard> {
                                       context
                                           .read<CardProvider>()
                                           .cardTypes[index],
-                                      style: TextStyle(color: Colors.black54),
+                                      style: TextStyle(
+                                          color: Colors.black54,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 17),
                                     ),
                                   ))),
                     ),
@@ -113,10 +116,12 @@ class _AddCardState extends State<AddCard> {
 
                     CupertinoButton.filled(
                       onPressed: () {
-                        context
-                            .read<CardProvider>()
-                            .createCard(cardNum, method, indexNum);
-                        Navigator.pop(context);
+                        setState(() {
+                          context
+                              .read<CardProvider>()
+                              .createCard(cardNum, method, indexNum);
+                              Navigator.pop(context);
+                        });
                       },
                       child: Text("Add Card"),
                     )
@@ -165,10 +170,11 @@ class _AddCardState extends State<AddCard> {
                                           CupertinoDialogAction(
                                             child: Text("Allow"),
                                             onPressed: () {
-                                              context
+                                              setState(() {
+                                                context
                                                   .read<CardProvider>()
-                                                  .activeCreditCard = index;
-                                              // Navigator.of(context).pop();
+                                                  .activeCreditCard = index;  
+                                              });
                                               Navigator.pop(context);
                                             },
                                           )
@@ -184,9 +190,7 @@ class _AddCardState extends State<AddCard> {
                 //   margin: EdgeInsets.symmetric(horizontal: 20),
                 //   child: Text("Create Card", style: TextStyle(color: CupertinoTheme.of(context).primaryColor),)),
                 GestureDetector(
-                  onTap: () {
-                    _showDialog();
-                  },
+                  onTap: () => _showDialog(),
                   child: Container(
                     margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                     height: 150,

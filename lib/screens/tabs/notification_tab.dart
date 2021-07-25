@@ -11,57 +11,63 @@ class NotificationTab extends StatelessWidget {
     var provider = context.read<NotificationProvider>();
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
-        middle: Text("Notifications"),
+        middle: Text("Notification"),
       ),
-      child: ListView.builder(
-          itemCount: provider.notifications.length,
-          itemBuilder: (context, index) {
-            var date =
-                DateTime.parse(provider.notifications[index].date.toString());
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                CustomListTile(
-                  Container(
-                    height: 50,
-                    width: 50,
-                    child: Image.asset(provider.notifications[index].image.toString())),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width*.60,
-                        child: Text(
-                    
-                          provider.notifications[index].title.toString(),
-                          style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w700),
+      child: SafeArea(
+        child: CustomScrollView(
+          slivers: [
+            SliverList(delegate: SliverChildBuilderDelegate((contex, index) {
+              var date =
+                  DateTime.parse(provider.notifications[index].date.toString());
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  CustomListTile(
+                    Container(
+                        height: 50,
+                        width: 50,
+                        child: Image.asset(
+                            provider.notifications[index].image.toString())),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width * .60,
+                          child: Text(
+                            provider.notifications[index].title.toString(),
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w700),
+                          ),
                         ),
-                      ),
-                      // SizedBox(width: 10,),
-                      Container(
-                        width: MediaQuery.of(context).size.width*.60,
-                        child: Text(
-                          provider.notifications[index].content.toString(),
-                          maxLines: 5,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(color: Colors.black54, fontSize: 14),
+                        // SizedBox(width: 10,),
+                        Container(
+                          width: MediaQuery.of(context).size.width * .60,
+                          child: Text(
+                            provider.notifications[index].content.toString(),
+                            maxLines: 5,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(color: Colors.black54, fontSize: 14),
+                          ),
                         ),
+                      ],
+                    ),
+                    Container(
+                      child: Text(
+                        '${CalcMonth().convertMonth(date.month)}, ${date.day.toString()}',
+                        style: TextStyle(fontSize: 13),
                       ),
-                    ],
+                    ),
                   ),
-                  Container(
-                    child: Text(
-                        '${CalcMonth().convertMonth(date.month)}, ${date.day.toString()}', style: TextStyle(fontSize: 13),),
-                  ),
-                ),
-                Divider(
-                  thickness: 1,
-                )
-              ],
-            );
-          }),
+                  Divider(
+                    thickness: 1,
+                  )
+                ],
+              );
+            }, childCount: provider.notifications.length))
+          ],
+        ),
+      ),
     );
   }
 }

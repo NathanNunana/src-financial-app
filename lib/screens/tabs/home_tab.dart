@@ -20,10 +20,10 @@ class HomeTab extends StatelessWidget {
             ),
             trailing: CupertinoButton(
               padding: EdgeInsets.zero,
-              onPressed: () async {
+              onPressed: () {
                 // await FirebaseAuth.instance.signOut();
-                Navigator.of(context).pushNamed("/addcard");
-                // Navigator.push(context, CupertinoPageRoute(builder: (_)=>AddCard()));
+                // Navigator.of(context).pushNamed("/addcard");
+                Navigator.push(context, CupertinoPageRoute(builder: (_)=>AddCard()));
               },
               child: Row(
                 mainAxisSize: MainAxisSize.min,
@@ -38,7 +38,7 @@ class HomeTab extends StatelessWidget {
             ),
           ),
           SliverList(
-              delegate:
+              delegate: 
                   SliverChildBuilderDelegate((BuildContext context, int index) {
             return SingleChildScrollView(
               scrollDirection: Axis.vertical,

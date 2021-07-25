@@ -130,6 +130,7 @@ class SmartPayOptions extends StatelessWidget {
                   ),
                   GestureDetector(
                       onTap: () {
+                        // Navigator.pushNamed(context, "/stackpay");
                         Navigator.push(
                             context,
                             CupertinoPageRoute(
