@@ -32,6 +32,8 @@ dependencies:
   flutter_paystack: ^1.0.5+1
   webview_flutter: ^2.0.10
   http: ^0.13.3
+  firebase_core: ^1.4.0
+  firebase_auth: ^3.0.1
 
 dev_dependencies:
   flutter_test:

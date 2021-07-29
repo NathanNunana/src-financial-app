@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "845319318064",
+    "project_id": "fintech-database-17afe",
+    "storage_bucket": "fintech-database-17afe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:845319318064:android:a6cf3d2a8492350fc41bf5",
+        "android_client_info": {
+          "package_name": "com.example.fintech_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "845319318064-r222ui5g6ccvmgp6jj0b4gecjudqtfku.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3atDvFuhgrq2zMW80qsMqn014JkMDVNo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "845319318064-r222ui5g6ccvmgp6jj0b4gecjudqtfku.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
