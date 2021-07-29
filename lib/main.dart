@@ -18,6 +18,7 @@ import './screens/tabs/notification_tab.dart';
 import './screens/signup_page.dart';
 import './screens/addcard.dart';
 import './screens/tabs/profile_tab.dart';
+import './screens/about.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -59,6 +60,7 @@ class MyApp extends StatelessWidget {
             "/addcard": (_) => AddCard(),
             "/profile" : (_) => UserProfileTab(),
             "/stackpay": (_) => StackPayment(),
+            "/about": (_) => AboutPage(),
           },
         )
     );

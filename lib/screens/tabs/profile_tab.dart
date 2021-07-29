@@ -1,4 +1,5 @@
 import 'package:fintech_app/providers/user.dart';
+import 'package:fintech_app/screens/about.dart';
 import 'package:fintech_app/widget/list_tile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -87,19 +88,25 @@ class UserProfileTab extends StatelessWidget {
                               Text("Settings"),
                               Icon(CupertinoIcons.chevron_right),
                             ),
-                            CustomListTile(
-                              Container(
-                                decoration: BoxDecoration(
-                                    color: Colors.orange,
-                                    borderRadius: BorderRadius.circular(10)),
-                                padding: EdgeInsets.all(10),
-                                child: Icon(
-                                  CupertinoIcons.doc_plaintext,
-                                  color: Colors.white,
+                            GestureDetector(
+                              onTap: (){
+                                // Navigator.pushNamed(context, "/about");
+                                Navigator.push(context, CupertinoPageRoute(builder: (_)=>AboutPage()));
+                              },
+                              child: CustomListTile(
+                                Container(
+                                  decoration: BoxDecoration(
+                                      color: Colors.orange,
+                                      borderRadius: BorderRadius.circular(10)),
+                                  padding: EdgeInsets.all(10),
+                                  child: Icon(
+                                    CupertinoIcons.doc_plaintext,
+                                    color: Colors.white,
+                                  ),
                                 ),
+                                Text("About"),
+                                Icon(CupertinoIcons.chevron_right),
                               ),
-                              Text("About"),
-                              Icon(CupertinoIcons.chevron_right),
                             ),
                             CustomListTile(
                               Container(

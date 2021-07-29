@@ -29,8 +29,11 @@ class HomeTab extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Icon(
-                    CupertinoIcons.plus_app_fill,
+                    CupertinoIcons.creditcard,
                     color: CupertinoTheme.of(context).primaryColor,
+                  ),
+                  SizedBox(
+                    width: 5,
                   ),
                   Text("AddCard"),
                 ],
