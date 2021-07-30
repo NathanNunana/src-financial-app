@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
       child: CupertinoApp(
           debugShowCheckedModeBanner: false,
           theme: CupertinoThemeData(
-              brightness: Brightness.light,
+              // brightness: Brightness.light,
               // barBackgroundColor: Color(0xffFF3F00),
               // primaryColor: Colors.white),
           ),

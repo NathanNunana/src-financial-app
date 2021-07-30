@@ -37,6 +37,7 @@ class NotificationTab extends StatelessWidget {
                           child: Text(
                             provider.notifications[index].title.toString(),
                             style: TextStyle(
+                              color: CupertinoTheme.of(context).textTheme.textStyle.color,
                                 fontSize: 15, fontWeight: FontWeight.w700),
                           ),
                         ),
@@ -47,7 +48,7 @@ class NotificationTab extends StatelessWidget {
                             provider.notifications[index].content.toString(),
                             maxLines: 5,
                             overflow: TextOverflow.ellipsis,
-                            style: TextStyle(color: Colors.black54, fontSize: 14),
+                            style: TextStyle(color: CupertinoTheme.of(context).textTheme.textStyle.color, fontSize: 14, ),
                           ),
                         ),
                       ],
@@ -55,7 +56,7 @@ class NotificationTab extends StatelessWidget {
                     Container(
                       child: Text(
                         '${CalcMonth().convertMonth(date.month)}, ${date.day.toString()}',
-                        style: TextStyle(fontSize: 13),
+                        style: TextStyle(fontSize: 13, color: CupertinoTheme.of(context).textTheme.textStyle.color),
                       ),
                     ),
                   ),

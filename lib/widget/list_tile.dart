@@ -14,6 +14,7 @@ class _CustomListTileState extends State<CustomListTile> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: CupertinoTheme.of(context).barBackgroundColor,
       padding: EdgeInsets.all(10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -17,6 +17,7 @@ class CreditCard extends StatelessWidget {
           margin: EdgeInsets.only(right: 20.0,left: 20.0, top: 30, bottom: 29),
           height: 170,
           decoration: BoxDecoration(
+
               color: card[index].cardColor,
               borderRadius: BorderRadius.circular(15),
               boxShadow: [

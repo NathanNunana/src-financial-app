@@ -52,11 +52,11 @@ class _TransactionRecordsState extends State<TransactionRecords> {
                     Text(
                       provider.title.toString(),
                       style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold,color: CupertinoTheme.of(context).textTheme.textStyle.color),
                     ),
                     Text(
                       provider.mode.toString(),
-                      style: TextStyle(fontSize: 12),
+                      style: TextStyle(fontSize: 12, color: CupertinoTheme.of(context).textTheme.textStyle.color),
                     )
                   ],
                 ),
@@ -67,12 +67,12 @@ class _TransactionRecordsState extends State<TransactionRecords> {
                     Text(
                       '-GHS${provider.amount.toString()}',
                       style:
-                          TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                          TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: CupertinoTheme.of(context).textTheme.textStyle.color),
                     ),
                     Text(
                       '${CalcMonth().convertMonth(provider.date.month)}, ${provider.date.day.toString()}',
                       style:
-                          TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
+                          TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: CupertinoTheme.of(context).textTheme.textStyle.color),
                     )
                   ],
                 ),
@@ -119,7 +119,7 @@ class _TransactionRecordsState extends State<TransactionRecords> {
                 Text(
                   "Transactions",
                   style:
-                      TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                      TextStyle(fontSize: 17, fontWeight: FontWeight.bold, color: CupertinoTheme.of(context).textTheme.textStyle.color),
                 ),
                 (context.read<TransactionProvider>().transactions.length > 0) ? Container(
                     margin: EdgeInsets.only(top: 9),

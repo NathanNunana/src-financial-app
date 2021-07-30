@@ -4,7 +4,12 @@ import 'package:fintech_app/services/tranaction_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class SmartPayOptions extends StatelessWidget {
+class SmartPayOptions extends StatefulWidget {
+  @override
+  _SmartPayOptionsState createState() => _SmartPayOptionsState();
+}
+
+class _SmartPayOptionsState extends State<SmartPayOptions> {
   Widget _buildItems(String title, Color color, Icon icon) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,7 +28,10 @@ class SmartPayOptions extends StatelessWidget {
               title,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  color: CupertinoTheme.of(context).textTheme.textStyle.color),
             ))
       ],
     );
@@ -36,7 +44,7 @@ class SmartPayOptions extends StatelessWidget {
       // padding: EdgeInsets.all(28.0),
       child: Container(
         decoration: BoxDecoration(
-            color: Colors.white,
+            color: CupertinoTheme.of(context).barBackgroundColor,
             borderRadius: BorderRadius.circular(10),
             boxShadow: [
               BoxShadow(
@@ -50,12 +58,18 @@ class SmartPayOptions extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Smart Pay"),
+              Text(
+                "Smart Pay",
+                style: TextStyle(
+                    color:
+                        CupertinoTheme.of(context).textTheme.textStyle.color),
+              ),
               SizedBox(
                 height: 5,
               ),
               Divider(
                 thickness: 1,
+                color: CupertinoTheme.of(context).textTheme.textStyle.color,
               ),
               SizedBox(
                 height: 13,

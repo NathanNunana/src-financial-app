@@ -18,7 +18,6 @@ class CardProvider extends ChangeNotifier{
   set activeCreditCard(int index) => activeCard = index;
 
   createCard(String cardNum, String cardType, String indexNum){
-    cardType = cardTypes[0];
     var val = CardModel(cardNum, Color.fromARGB(Random().nextInt(255), Random().nextInt(100),
             Random().nextInt(150), Random().nextInt(200)) ,cardType);
     cards.add(val);
