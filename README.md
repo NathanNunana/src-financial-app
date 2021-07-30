@@ -17,8 +17,8 @@ samples, guidance on mobile development, and a full API reference.
 "# SRC-Financial-App" 
 
 <br>
-<img width="450px"  src="assets/readme_img/Screenshot_1627667687.png">
-<img width="450px"  src="assets/readme_img/Screenshot_1627667760.png">
-<img width="450px"  src="assets/readme_img/Screenshot_1627667797.png">
-<img width="450px"  src="assets/readme_img/Screenshot_1627667808.png">
+<img width="440px"  src="assets/readme_img/Screenshot_1627667687.png">
+<img width="440px"  src="assets/readme_img/Screenshot_1627667760.png">
+<img width="440px"  src="assets/readme_img/Screenshot_1627667797.png">
+<img width="440px"  src="assets/readme_img/Screenshot_1627667808.png">
 <br>
