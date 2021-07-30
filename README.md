@@ -4,7 +4,7 @@ DIGITIZING UNIVERSITIES.
 
 ## Mobile Version
 
-This is the mobile version of a financial system that would help students <br>of all universities to make any school related transactions.
+This is the mobile version of a financial system that would help students of all universities to make any school related transactions.
 
 <br>
 <img width="440px"  src="assets/readme_img/Screenshot_1627667687.png">
