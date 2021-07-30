@@ -16,6 +16,35 @@ class _AddCardState extends State<AddCard> {
 
   String method = '';
 
+  void _showSelectDialog(int index) {
+    showCupertinoDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (context) {
+          return CupertinoAlertDialog(
+            title: Text("Would you like to select this card?"),
+            content: Text("This card will be used for all your transactions"),
+            actions: [
+              CupertinoDialogAction(
+                child: Text("Do'nt Allow"),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              CupertinoDialogAction(
+                child: Text("Allow"),
+                onPressed: () {
+                  setState(() {
+                    context.read<CardProvider>().activeCreditCard = index;
+                    Navigator.pop(context);
+                  });
+                },
+              )
+            ],
+          );
+        });
+  }
+
   _showDialog() {
     showCupertinoDialog(
         context: context,
@@ -153,49 +182,14 @@ class _AddCardState extends State<AddCard> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: context.read<CardProvider>().cards.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Column(
-                        children: [
-                          GestureDetector(
-                              onTap: () async {
-                                showCupertinoDialog(
-                                    context: context,
-                                    barrierDismissible: false,
-                                    builder: (context) {
-                                      return CupertinoAlertDialog(
-                                        title: Text(
-                                            "Would you like to select this card?"),
-                                        content: Text(
-                                            "This card will be used for all your transactions"),
-                                        actions: [
-                                          CupertinoDialogAction(
-                                            child: Text("Do'nt Allow"),
-                                            onPressed: () {
-                                              Navigator.of(context).pop();
-                                            },
-                                          ),
-                                          CupertinoDialogAction(
-                                            child: Text("Allow"),
-                                            onPressed: () {
-                                              setState(() {
-                                                context
-                                                    .read<CardProvider>()
-                                                    .activeCreditCard = index;
-                                                Navigator.pop(context);
-                                              });
-                                            },
-                                          )
-                                        ],
-                                      );
-                                    });
-                              },
-                              child: CreditCard(index)),
-                        ],
-                      );
-                    }),
+                for (var i = 0;
+                    i < context.read<CardProvider>().cards.length;
+                    i++)
+                  GestureDetector(
+                    onTap: () => _showSelectDialog(i),
+                    child: CreditCard(i),
+                  ),
+
                 // Container(
                 //   margin: EdgeInsets.symmetric(horizontal: 20),
                 //   child: Text("Create Card", style: TextStyle(color: CupertinoTheme.of(context).primaryColor),)),
