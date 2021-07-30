@@ -19,7 +19,7 @@ class _AddCardState extends State<AddCard> {
   _showDialog() {
     showCupertinoDialog(
         context: context,
-        builder: (_) {
+        builder: (context) {
           return Container(
             alignment: Alignment.center,
             child: Container(
@@ -95,13 +95,11 @@ class _AddCardState extends State<AddCard> {
                     Container(
                         margin: EdgeInsets.symmetric(horizontal: 20),
                         child: CupertinoTextField(
-                          
                           onChanged: (String val) {
                             setState(() {
                               indexNum = val;
                             });
                           },
-                          
                           keyboardType: TextInputType.text,
                           padding: EdgeInsets.all(15),
                           placeholder: "Enter your index number",
@@ -118,20 +116,21 @@ class _AddCardState extends State<AddCard> {
 
                     CupertinoButton.filled(
                       onPressed: () {
-                        if(cardNum.isEmpty){
+                        if (cardNum.isEmpty) {
                           setState(() {
-                          context
-                              .read<CardProvider>()
-                              .createCard(cardNum = "*** **** **** *****", method, indexNum);
-                              Navigator.pop(context);
-                        });
-                        }else{
+                            context.read<CardProvider>().createCard(
+                                cardNum = "*** **** **** *****",
+                                method,
+                                indexNum);
+                            Navigator.pop(context);
+                          });
+                        } else {
                           setState(() {
-                          context
-                              .read<CardProvider>()
-                              .createCard(cardNum, method, indexNum);
-                              Navigator.pop(context);
-                        });
+                            context
+                                .read<CardProvider>()
+                                .createCard(cardNum, method, indexNum);
+                            Navigator.pop(context);
+                          });
                         }
                       },
                       child: Text("Add Card"),
@@ -165,7 +164,7 @@ class _AddCardState extends State<AddCard> {
                                 showCupertinoDialog(
                                     context: context,
                                     barrierDismissible: false,
-                                    builder: (_) {
+                                    builder: (context) {
                                       return CupertinoAlertDialog(
                                         title: Text(
                                             "Would you like to select this card?"),
@@ -183,9 +182,9 @@ class _AddCardState extends State<AddCard> {
                                             onPressed: () {
                                               setState(() {
                                                 context
-                                                  .read<CardProvider>()
-                                                  .activeCreditCard = index; 
-                                                  Navigator.pop(context); 
+                                                    .read<CardProvider>()
+                                                    .activeCreditCard = index;
+                                                Navigator.pop(context);
                                               });
                                             },
                                           )
