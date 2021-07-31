@@ -48,13 +48,14 @@ class _AddCardState extends State<AddCard> {
   _showDialog() {
     showCupertinoDialog(
         context: context,
+        barrierDismissible: true,
         builder: (context) {
           return Container(
             alignment: Alignment.center,
             child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Colors.white,
+                  color: CupertinoTheme.of(context).barBackgroundColor,
                 ),
                 width: 300,
                 height: 330,
@@ -75,10 +76,12 @@ class _AddCardState extends State<AddCard> {
                       height: 10,
                     ),
                     Container(
-                      margin: EdgeInsets.symmetric(horizontal: 10),
-                      padding: EdgeInsets.all(5),
+                      // margin: EdgeInsets.symmetric(horizontal: 10),
+                      // padding: EdgeInsets.all(5),
+                      height: 60,
                       child: CupertinoPicker(
-                          itemExtent: 45.0,
+                          itemExtent: 32.0,
+                          looping: true,
                           onSelectedItemChanged: (int index) {
                             method =
                                 context.read<CardProvider>().cardTypes[index];
@@ -91,7 +94,6 @@ class _AddCardState extends State<AddCard> {
                                           .read<CardProvider>()
                                           .cardTypes[index],
                                       style: TextStyle(
-                                          color: Colors.black54,
                                           fontWeight: FontWeight.w500,
                                           fontSize: 17),
                                     ),
@@ -111,8 +113,7 @@ class _AddCardState extends State<AddCard> {
                           keyboardType: TextInputType.text,
                           padding: EdgeInsets.all(15),
                           placeholder: "Enter account number or mobile number",
-                          placeholderStyle:
-                              TextStyle(fontSize: 16, color: Colors.black54),
+                          placeholderStyle: TextStyle(fontSize: 16),
                           decoration: BoxDecoration(
                               border:
                                   Border.all(width: 0.42, color: Colors.blue),
@@ -132,8 +133,7 @@ class _AddCardState extends State<AddCard> {
                           keyboardType: TextInputType.text,
                           padding: EdgeInsets.all(15),
                           placeholder: "Enter your index number",
-                          placeholderStyle:
-                              TextStyle(fontSize: 16, color: Colors.black54),
+                          placeholderStyle: TextStyle(fontSize: 16),
                           decoration: BoxDecoration(
                               border:
                                   Border.all(width: 0.42, color: Colors.blue),
